@@ -1,120 +1,186 @@
 # dam_model_flac2d_runner
 
-Generic MATLAB automation framework for running multiple FLAC2D dam realizations, archiving static results, and launching factor-of-safety (FoS) analyses from saved static states.
+Generic MATLAB–FLAC2D automation framework for dam modeling, uncertainty analysis, and factor-of-safety (FoS) simulations.
 
-This repository was generalized from an older project-specific MATLAB→FLAC workflow. Project-specific names and hardcoded paths were removed so the workflow can be reused for other dam models.
+This repository provides a reusable workflow for running large batches of FLAC2D simulations using MATLAB automation scripts and FISH utilities. The framework was generalized from research-scale dam simulations and refactored to remove project-specific dependencies and hardcoded paths.
 
-## Main features
+---
 
-- MATLAB-controlled batch execution of FLAC2D models.
-- Generic project root, defaulting to `D:\Flac_project`.
-- Generic model prefix, defaulting to `Dam`.
-- No duplicated names such as `Dam_Dam`; realization folders are `Dam_1`, `Dam_2`, etc.
-- Static realization runner.
-- FoS runner that starts from archived static save files.
-- Logging for every run batch.
-- Configurable FLAC executable path.
-- Original legacy files retained in `legacy/` for traceability.
+## Features
 
-## Recommended project layout
+- MATLAB automation for FLAC2D simulations
+- Batch processing of random-variable realizations
+- Generic FLAC2D project structure
+- Static simulation workflow
+- Factor-of-Safety (FoS) workflow
+- Automated result archiving
+- FISH utility integration
+- Reusable folder structure
+- GitHub-ready organization
+
+---
+
+## Repository Structure
 
 ```text
-D:\Flac_project\
-├── Samples\
-│   └── RVs.xlsx
-├── RVs_fis\
-│   ├── RVs1.fis
-│   ├── RVs2.fis
-│   └── ...
-├── Templates\
+dam_model_flac2d_runner/
+│
+├── matlab/
+│   ├── run_static_models.m
+│   ├── run_fos_models.m
+│   └── utils/
+│       └── fileRename.m
+│
+├── flac_templates/
 │   ├── Dam.dat
 │   ├── Dam_FoS.dat
 │   ├── Dam.prj
-│   ├── flac.ini
-│   ├── material_properties.fis
-│   ├── RVs_calc.fis
-│   ├── tabtofile.fis
-│   ├── dam_motion.his
-│   └── ...
-├── Models\
-│   ├── Dam_1\
-│   ├── Dam_2\
-│   └── ...
-└── Logs\
+│   ├── Dam.his
+│   └── fis/
+│       ├── material_properties.fis
+│       ├── RVs_calc.fis
+│       ├── RV_template.fis
+│       ├── initialization.fis
+│       ├── initial_inverse.fis
+│       └── tabtofile.fis
+│
+├── examples/
+│
+├── docs/
+│
+├── .gitignore
+├── LICENSE
+├── CITATION.cff
+└── README.md
 ```
 
-## Quick start
+---
 
-1. Clone or download this repository.
-2. In MATLAB, add the runner to your path:
+## Requirements
 
-```matlab
-addpath(genpath('path\to\dam_model_flac2d_runner\matlab'));
-```
+### Software
 
-3. Create the example structure:
+- MATLAB
+- FLAC2D / FLAC 8.x
+- Windows environment
 
-```matlab
-run('path\to\dam_model_flac2d_runner\examples\setup_example_project.m')
-```
+### Tested With
 
-4. Copy your FLAC files into `D:\Flac_project\Templates`:
+- MATLAB R2021+
+- FLAC 8.1
 
-- `Dam.prj`
-- `flac.ini`
-- edited `Dam.dat`
-- edited `Dam_FoS.dat`
-- required `.fis` files
-- required `.his` files
-
-5. Run static realizations:
-
-```matlab
-run_static_models('ProjectRoot','D:\Flac_project', 'RunIndices', 1:10);
-```
-
-6. Run FoS analyses after static runs finish:
-
-```matlab
-run_fos_models('ProjectRoot','D:\Flac_project', 'RunIndices', 1:10);
-```
+---
 
 ## Configuration
 
-All major paths and options are controlled by `matlab/configureDamFlacRunner.m`.
+The framework uses a generic project root:
 
-Example:
+```text
+D:\Flac_project
+```
+
+Example directory structure:
+
+```text
+D:\Flac_project\
+│
+├── Samples\
+├── RVs_fis\
+├── Models\
+├── Outputs\
+└── Templates\
+```
+
+Update paths in the MATLAB runner scripts as needed.
+
+---
+
+## Workflows
+
+### 1. Static Simulations
+
+Run batch FLAC2D static analyses using randomized parameter sets:
 
 ```matlab
-cfg = configureDamFlacRunner( ...
-    'ProjectRoot', 'D:\Flac_project', ...
-    'FlacBase', 'C:\Program Files\Itasca\FLAC810\exe64', ...
-    'ModelPrefix', 'Dam', ...
-    'RunIndices', 1:50, ...
-    'PollSeconds', 10);
+run_static_models
 ```
 
-## FLAC template token
+Main steps:
+1. Read random variables
+2. Prepare FLAC2D input files
+3. Launch FLAC2D
+4. Wait for completion
+5. Archive outputs
 
-The static data file `Dam.dat` should contain this token where the realization-specific FISH file is called:
+---
 
-```text
-RV_PLACEHOLDER.fis
+### 2. Factor-of-Safety (FoS) Simulations
+
+Run FoS analyses using previously generated model states:
+
+```matlab
+run_fos_models
 ```
 
-At runtime, MATLAB replaces it with:
+Main steps:
+1. Load saved model state
+2. Launch FoS simulation
+3. Save FoS outputs
+4. Archive results
 
-```text
-RVs1.fis, RVs2.fis, ...
-```
+---
+
+## Random Variable Workflow
+
+The framework supports Monte Carlo / uncertainty-analysis workflows through:
+- MATLAB preprocessing
+- FISH parameter injection
+- Automated realization handling
+
+Typical workflow:
+1. Generate random-variable samples
+2. Export realization-specific FISH files
+3. Execute FLAC2D runs
+4. Collect outputs for post-processing
+
+---
 
 ## Notes
 
-- This repository does not include a FLAC license or FLAC executable.
-- Large generated outputs, save files, and result folders are ignored by Git by default.
-- The included FLAC/FISH templates may still require project-specific calibration before use in a new dam model.
+- FLAC2D executable paths may differ by installation.
+- Large output files are intentionally excluded via `.gitignore`.
+- This repository focuses on workflow automation rather than a specific dam case study.
+
+---
+
+## Future Extensions
+
+Potential future developments:
+- Dynamic earthquake simulations
+- Parallel execution
+- Surrogate-model coupling
+- Machine-learning integration
+- Reliability analysis
+- Automatic post-processing
+- HPC support
+
+---
+
+## Citation
+
+If you use this framework in academic work, please cite the repository using the included `CITATION.cff`.
+
+---
+
+## License
+
+This project is distributed under the MIT License unless otherwise specified.
+
+---
 
 ## Author
 
-Behzad Shakouri
-
+Behzad Shakouri  
+Postdoctoral Research Associate  
+Department of Civil & Environmental Engineering  
+The Catholic University of America
