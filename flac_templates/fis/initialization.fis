@@ -1,0 +1,32 @@
+;Name: integrate
+;Note: This routine will integrate a table, outputting another table
+;Note: containing the integration.  The resulting table will have the
+;Note: same number of points as the original.
+;Input: int_in/int/1/table with original data
+;Input: int_out/int/2/table with integration
+;End
+
+;
+def integrate
+  command
+     table int_out erase
+  end_command
+  nitem = table_size(int_in)
+;
+  xold  = xtable(int_in,1)
+  yold  = ytable(int_in,1)
+  val = 0.0
+  xtable(int_out,1) = xold
+  ytable(int_out,1) = val
+  loop ii (2,nitem)
+    xnew = xtable(int_in,ii)
+    ynew = ytable(int_in,ii)
+    val = val + 0.5*(yold + ynew)*(xnew-xold)
+    xtable(int_out,ii) = xnew
+    ytable(int_out,ii) = val
+    xold = xnew
+    yold = ynew
+  end_loop
+;
+end
+;

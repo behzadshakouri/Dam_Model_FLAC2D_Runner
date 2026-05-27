@@ -1,0 +1,70 @@
+;Code: FLAC
+;Note: Initialize stress distribution for groundwater problems.
+;Note: The grid MUST be configured for gwflow.
+;Name: ininv
+;Input: wth/float/0.0/groundwater table height (Assumed to be initially horizontal)
+;Input: k0x/float/1.0/ratio of effective sigmaxx to effective sigmayy
+;Input: k0z/float/1.0/ratio of effective sigmazz to effective sigmayy
+;End
+
+;***** ini_pp ******
+; Initializes zone pore pressures
+; parameters (SET):
+;           wth ........ height of the water table
+def ini_pp
+loop i (1,igp)
+  loop j (1,jgp)
+    if y(i,j)>wth then
+      sat(i,j)=0.0
+    else
+      sat(i,j)=1.0
+      gpp(i,j)=-1.0*abs((y(i,j)-wth))*wdens*ygrav
+    end_if
+  end_loop
+end_loop
+loop i (1,izones)
+  loop j (1,jzones)
+    pp(i,j)=0.25*(gpp(i,j)+gpp(i,j+1)+gpp(i+1,j+1)+gpp(i+1,j))
+  end_loop
+end_loop
+end
+;**** ini_syy ******
+; Initializes vertical stresses
+; variables:
+;           h .......... height of zone j
+;           bot ........ vertical stress at the bottom of zone j
+;           top ........ vertical stress at the top of zone j
+def ini_syy
+top = 0.0
+loop jj (1,jzones)
+  j=jgp-jj
+  h=abs(y(1,j)-y(1,j+1))
+  bot=top+ygrav*h*(density(1,j)+porosity(1,j)*0.5*(sat(1,j)+sat(1,j+1))*wdens)
+  loop i (1,izones)
+    syy(i,j)=0.5*(bot+top)
+  end_loop
+  top=bot
+end_loop
+end
+;**** ini_shor ******
+; Initializes horizontal stresses
+; variables:
+;           k0x......... ratio of effective sxx to effective syy
+;           k0z......... ratio of effective szz to effective syy
+; parameters (SET):
+;	    k0x
+;           k0z
+def ini_shor
+loop i (1,izones)
+  loop j (1,jzones)
+    sxx(i,j)=k0x*(syy(i,j)+pp(i,j))-pp(i,j)
+    szz(i,j)=k0z*(syy(i,j)+pp(i,j))-pp(i,j)
+  end_loop
+end_loop
+end
+
+def ininv
+  ini_pp
+  ini_syy
+  ini_shor
+end

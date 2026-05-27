@@ -1,0 +1,13 @@
+def tabtofile
+  array p_val(1)
+  _npt = table_size(tabin)
+  stat = open(filename,1,1)
+  loop ii (1,_npt)
+    xval = xtable(tabin,ii)
+    yval = ytable(tabin,ii)
+    _str = 'table '+string(tabin)+' '+string(xval)+' '+string(yval)
+    p_val(1) = _str
+    stat = write(p_val,1)
+  end_loop
+  stat = close
+end

@@ -1,0 +1,100 @@
+;Name:RVs_calc
+
+def RVs_calc
+
+;;input RVs
+
+d_core=RV1
+d_shell=RV2
+d_filter=RV3
+d_drainage=RV4
+d_toedrainage=RV4
+
+e_core=RV5
+e_shell=RV6
+e_drainage=RV7
+e_toedrainage=RV7
+e_alluvium=RV8
+
+nu_core=RV9
+nu_shell=RV10
+
+c_core=RV11
+
+f_shell=RV12
+f_filter=RV13
+f_drainage=RV14
+f_toedrainage=RV14
+f_alluvium=RV15
+
+p_core=RV16
+p_shell=RV17
+
+h_drainage=RV18
+h_toedrainage=((RV18-(5.00e-5))/((5.00e-3)-(5.00e-5)))*((4.00e-2)-(8.00e-3))+8.00e-3
+
+;;calculations
+;bulk modulus
+b_core = e_core/(3*(1-2*nu_core))
+b_shell = e_shell/(3*(1-2*nu_shell))
+b_filter = e_filter/(3*(1-2*nu_filter))
+b_drainage = e_drainage/(3*(1-2*nu_drainage))
+b_toedrainage = e_toedrainage/(3*(1-2*nu_toedrainage))
+b_groutcurtain = e_groutcurtain/(3*(1-2*nu_groutcurtain))
+b_alluvium = e_alluvium/(3*(1-2*nu_alluvium))
+b_bedrock = e_bedrock/(3*(1-2*nu_bedrock))
+;shear modulus
+s_core = e_core/(2*(1+nu_core))
+s_shell = e_shell/(2*(1+nu_shell))
+s_filter = e_filter/(2*(1+nu_filter))
+s_drainage = e_drainage/(2*(1+nu_drainage))
+s_toedrainage = e_toedrainage/(2*(1+nu_toedrainage))
+s_groutcurtain = e_groutcurtain/(2*(1+nu_groutcurtain))
+s_alluvium = e_alluvium/(2*(1+nu_alluvium))
+s_bedrock = e_bedrock/(2*(1+nu_bedrock))
+;permeability
+pe_core = h_core*1e-4
+pe_shell = h_shell*1e-4
+pe_filter = h_filter*1e-4
+pe_drainage = h_drainage*1e-4
+pe_toedrainage = h_toedrainage*1e-4
+pe_groutcurtain = h_groutcurtain*1e-4
+pe_alluvium = h_alluvium*1e-4
+pe_bedrock = h_bedrock*1e-4
+;interface ks
+k1 = max(((10/0.8)*(b_alluvium+(4/3.0)*s_alluvium)) , ((10/0.8)*(b_groutcurtain+(4/3.0)*s_groutcurtain)))
+k2 = max(((10/0.8)*(b_bedrock+(4/3.0)*s_bedrock)) , ((10/0.8)*(b_groutcurtain+(4/3.0)*s_groutcurtain)))
+k3 = max(((10/0.8)*(b_alluvium+(4/3.0)*s_alluvium)) , ((10/0.8)*(b_groutcurtain+(4/3.0)*s_groutcurtain)))
+k4 = max(((10/0.8)*(b_core+(4/3.0)*s_core)) , ((10/0.8)*(b_groutcurtain+(4/3.0)*s_groutcurtain)))
+;saturated density
+sd_core = d_core+p_core*1000
+sd_shell = d_shell+p_shell*1000
+sd_filter = d_filter+p_filter*1000
+sd_drainage = d_drainage+p_drainage*1000
+sd_toedrainage = d_toedrainage+p_toedrainage*1000
+sd_groutcurtain = d_groutcurtain+p_groutcurtain*1000
+sd_alluvium = d_alluvium+p_alluvium*1000
+sd_bedrock = d_bedrock+p_bedrock*1000
+;Cs
+Cs_core=sqrt(s_core/sd_core)
+Cs_shell=sqrt(s_shell/sd_shell)
+Cs_filter=sqrt(s_filter/sd_filter)
+Cs_drainage=sqrt(s_drainage/sd_drainage)
+Cs_toedrainage=sqrt(s_toedrainage/sd_toedrainage)
+Cs_groutcurtain=sqrt(s_groutcurtain/sd_groutcurtain)
+Cs_alluvium=sqrt(s_alluvium/sd_alluvium)
+Cs_bedrock=sqrt(s_bedrock/sd_bedrock)
+;Sxy
+Sxy_core=-2*sd_core*Cs_core
+Sxy_shell=-2*sd_shell*Cs_shell
+Sxy_filter=-2*sd_filter*Cs_filter
+Sxy_drainage=-2*sd_drainage*Cs_drainage
+Sxy_toedrainage=-2*sd_toedrainage*Cs_toedrainage
+Sxy_groutcurtain=-2*sd_groutcurtain*Cs_groutcurtain
+Sxy_alluvium=-2*sd_alluvium*Cs_alluvium
+Sxy_bedrock=-2*sd_bedrock*Cs_bedrock
+
+end
+
+RVs_calc
+

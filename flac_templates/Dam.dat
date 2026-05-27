@@ -1,0 +1,745 @@
+;Project Record Tree export
+;File: Dam.dat
+;Units: SI: meter-kilogram-second;Date: Oct 6, 2021 11:58:54 PM
+;Title: Generic dam model template
+;Branch 1:grid.sav
+;-----------start-------------
+config gwflow ats dynamic extra 10
+set flow off dyn off
+grid 272,103 ; define grid for entire model
+gen -120 0 29 75 135 75 118 0 i 1 120 j 29 104
+gen 118 0 135 75 151 75 152 0 i 120 154 j 29 104
+gen 152 0 151 75 258 75 390 0 i 154 273 j 29 104
+gen -120 -50 -120 -6 118 -6 118 -50 i 1 120 j 1 23
+gen 118 -50 118 -6 152 -6 152 -50 i 120 154 j 1 23
+gen 152 -50 152 -6 390 -6 390 -50 i 154 273 j 1 23
+gen -120 -6 -120 0 118 0 118 -6 i 1 120 j 23 29
+gen 118 -6 118 0 152 0 152 -6 i 120 154 j 23 29
+gen 152 -6 152 0 390 0 390 -6 i 154 273 j 23 29
+model elastic i 1 272 j 1 103
+;-----------tables--------------
+table 1 delete
+table 1 -120 -30 -120 0 0 0 28.5 16.61 33.5 16.61 136.86 73.31
+table 1 137.93 73.92 143.88 73.92 148.92 73.92 151.48 71.81 154.76 69.12
+table 1 159.76 69.12 179.76 53.34 184.76 53.34 210.76 34.91 215.76 34.91
+table 1 257.14 8 270 0 390 0 390 -30
+gen table 1
+mod null region 137,103
+table 2 delete
+table 2 0 0 119.18 0 136.86 73.31
+gen table 2
+table 3 delete
+table 3 119.18 0 122.18 0 139.08 70.94 142.08 70.94 124.48 -2.92 122.18 0
+gen table 3
+table 4 delete
+table 4 124.48 -2.92 125.12 -3.73 134.25 -3.73 136.25 -3.73 145.39 -3.73 &
+ 145.67 70.94 143.88 70.94 142.28 70.94
+gen table 4
+table 5 delete
+table 5 145.39 -3.73 148.39 -3.73 148.67 70.94 145.67 70.94
+gen table 5
+table 6 delete
+table 6 148.39 -3.73 151.3 0 270 0
+gen table 6
+table 7 delete
+table 7 151.48 71.81 151.3 6 229.46 6
+gen table 7
+table 8 delete
+table 8 134.25 -3.73 134.25 -30 134.25 -32 136.25 -32 136.25 -30 136.25 &
+ -3.73 134.25 -3.73
+gen table 8
+table 9 delete
+table 9 -120 -30 134.25 -30 134.25 -32 136.25 -32 136.25 -30 390 -30 390 &
+ -50 -120 -50 -120 -30
+gen table 9
+;----------fixed boundaries-----------
+fix x i 1 j 1 29
+fix x i 273 j 1 29
+fix x y j 1
+;----------generating lines-----------
+gen line 122.18 0 151.3 0
+gen line 13.73 8 257.14 8
+gen line 27.46 16 244.84 16
+gen line 46.97 24 232.54 24
+gen line 61.56 32 220.24 32
+gen line 76.14 40 203.58 40
+gen line 90.72 48 192.29 48
+gen line 105.31 56 176.38 56
+gen line 119.89 64 166.25 64
+gen line 143.88 70.94 143.88 73.92
+gen line 219.68 0 244.84 16
+;----------adjusting nodes--------
+ini x 28.5 y 16.61 i 67 j 46
+ini x 27.75 y 16.16 i 67 j 45
+ini x 33.51 y 16.61 i 70 j 46
+ini x 136.84 y 73.31 i 125 j 102
+ini x 123.42 y 65.92 i 111 j 95
+ini x 122.74 y 65.56 i 110 j 95
+ini x 144.19 y 71.97 i 140 j 101
+ini x 143.78 y 73.0 i 139 j 102
+ini x 143.71 y 71.99 i 139 j 101
+unmark i 140 j 101
+ini x 142.3 y 70.94 i 136 j 100
+ini x 142.65 y 70.94 i 137 j 100
+ini x 148.94 y 73.92 i 150 j 103
+ini x 151.48 y 71.8 i 154 j 101
+ini x 151.83 y 71.53 i 155 j 101
+ini x 154.76 y 69.119995 i 158 j 98
+ini x 154.31 y 69.49 i 157 j 98
+ini x 159.76 y 69.12 i 163 j 98
+ini x 184.76 y 53.34 i 182 j 82
+ini x 184.08 y 53.36 i 181 j 82
+ini x 215.77 y 34.92 i 197 j 64
+ini x 260.22 y 6 i 210 j 35
+ini x 261 y 5.5 i 211 j 35
+ini x 119.18 y 0 i 121 j 29
+ini x 122.18 y 0 i 124 j 29
+ini x 124.48 y -2.9 i 127 j 26
+ini x 124.17 y -2.53 i 126 j 26
+mark i 126 j 26
+mark i 127 j 26
+ini x 136.25 y -32.0 i 138 j 10
+ini x 135.0 y -4.95 i 137 j 24
+ini x 134.25 y -3.73 i 136 j 25
+ini x 136.25 y -3.73 i 138 j 25
+unmark i 137 j 24
+ini x 145.39 y -3.73 i 147 j 25
+ini x 148.4 y -3.73 i 150 j 25
+ini x 148.69 y -3.33 i 151 j 25
+mark i 151 j 25
+ini x 151.3 y 0 i 153 j 29
+ini x 122.91 y 0.0 i 125 j 29
+ini x 122.57 y -0.49 i 124 j 28
+mark i 124 j 28
+ini x 231.97 y 8 i 197 j 37
+ini x 231.65 y 7.74 i 197 j 36
+ini x 229.25 y 6 i 195 j 35
+ini x 244.84 y 16 i 207 j 45
+ini x 137.93 y 73.92 i 127 j 103
+ini x 137.58 y 73.72 i 126 j 103
+ini x 136.86 y 73.31 i 125 j 102
+ini x 27.46 y 16 i 67 j 45
+;-------grouping-------;
+group bedrock region 137,5
+group lalluvium region 40,20
+group ralluvium region 240,20
+group groutcurtain region 137,20
+group ushell1 region 118,32
+group ushell2 region 118,40
+group ushell3 region 118,48
+group ushell4 region 118,56
+group ushell5 region 118,64
+group ushell6 region 118,72
+group ushell7 region 118,80
+group ushell8 region 118,88
+group ushell9 region 118,96
+group udrainage1 region 122,32
+group udrainage2 region 122,40
+group udrainage3 region 123,48
+group udrainage4 region 123,56
+group udrainage5 region 124,64
+group udrainage6 region 124,72
+group udrainage7 region 125,80
+group udrainage8 region 125,88
+group udrainage9 region 126,96
+group ufilter0 region 125,28
+group ufilter1 region 125,32
+group ufilter2 region 125,40
+group ufilter3 region 126,48
+group ufilter4 region 126,56
+group ufilter5 region 127,64
+group ufilter6 region 127,72
+group ufilter7 region 128,80
+group ufilter8 region 129,88
+group ufilter9 region 130,96
+group core0 region 140,28
+group core1 region 140,32
+group core2 region 140,40
+group core3 region 140,48
+group core4 region 140,56
+group core5 region 140,64
+group core6 region 140,72
+group core7 region 140,80
+group core8 region 140,88
+group core9 region 140,96
+group dfilter0 region 148,28
+group dfilter1 region 148,32
+group dfilter2 region 148,40
+group dfilter3 region 148,48
+group dfilter4 region 148,56
+group dfilter5 region 148,64
+group dfilter6 region 148,72
+group dfilter7 region 148,80
+group dfilter8 region 148,88
+group dfilter9 region 148,96
+group ddrainage0 region 151,28
+group ddrainage1 region 151,32
+group ddrainage2 region 151,40
+group ddrainage3 region 151,48
+group ddrainage4 region 151,56
+group ddrainage5 region 151,64
+group ddrainage6 region 151,72
+group ddrainage7 region 151,80
+group ddrainage8 region 151,88
+group ddrainage9 region 151,96
+group toedrainage1 region 202,32
+group toedrainage2 region 202,40
+group dshell1 region 160,36
+group dshell2 region 160,40
+group dshell3 region 160,48
+group dshell4 region 160,56
+group dshell5 region 160,64
+group dshell6 region 160,72
+group dshell7 region 160,80
+group dshell8 region 160,88
+group dshell9 region 160,96
+group 'groutcurtain' i 136 j 24
+group 'groutcurtain' i 137 j 24
+group 'ufilter0' i 126 j 26
+group 'ufilter0' i 124 j 28
+group 'ddrainage0' i 150 j 25
+group 'ddrainage0' i 152 j 28
+group 'udrainage1' i 124 j 36
+group 'dfilter3' i 146 j 52
+group 'udrainage5' i 126 j 68
+group 'dfilter7' i 144 j 84
+group 'ufilter8' i 134 j 92
+group 'core9' i 143 j 93
+group 'ushell9' i 124 j 101
+group 'ushell1' i 195 j 36
+group 'ushell1' i 196 j 36
+group 'ddrainage1' i 193 j 34
+group 'toedrainage2' i 197 j 37
+group 'dshell2' i 205 j 44
+group 'toedrainage2' i 206 j 44
+;-----------nulling--------------
+m null group bedrock
+m null group bedrock
+m null group ralluvium
+m null group lalluvium
+m null group groutcurtain
+m null group ushell1
+m null group ushell2
+m null group ushell3
+m null group ushell4
+m null group ushell5
+m null group ushell6
+m null group ushell7
+m null group ushell8
+m null group ushell9
+m null group udrainage1
+m null group udrainage2
+m null group udrainage3
+m null group udrainage4
+m null group udrainage5
+m null group udrainage6
+m null group udrainage7
+m null group udrainage8
+m null group udrainage9
+m null group ufilter0
+m null group ufilter1
+m null group ufilter2
+m null group ufilter3
+m null group ufilter4
+m null group ufilter5
+m null group ufilter6
+m null group ufilter7
+m null group ufilter8
+m null group ufilter9
+m null group core0
+m null group core1
+m null group core2
+m null group core3
+m null group core4
+m null group core5
+m null group core6
+m null group core7
+m null group core8
+m null group core9
+m null group dfilter0
+m null group dfilter1
+m null group dfilter2
+m null group dfilter3
+m null group dfilter4
+m null group dfilter5
+m null group dfilter6
+m null group dfilter7
+m null group dfilter8
+m null group dfilter9
+m null group ddrainage0
+m null group ddrainage1
+m null group ddrainage2
+m null group ddrainage3
+m null group ddrainage4
+m null group ddrainage5
+m null group ddrainage6
+m null group ddrainage7
+m null group ddrainage8
+m null group ddrainage9
+m null group toedrainage1
+m null group toedrainage2
+m null group dshell1
+m null group dshell2
+m null group dshell3
+m null group dshell4
+m null group dshell5
+m null group dshell6
+m null group dshell7
+m null group dshell8
+m null group dshell9
+call 'material_properties.fis'
+call 'RV_PLACEHOLDER.fis'
+call 'RVs_calc.fis'
+;----------foundation properties---------
+m m group bedrock
+prop d d_bedrock b b_bedrock s s_bedrock c c_bedrock f f_bedrock dilation &
+ di_bedrock tension t_bedrock por p_bedrock perm pe_bedrock group bedrock
+m m group lalluvium
+prop d d_alluvium b b_alluvium s s_alluvium c c_alluvium f f_alluvium &
+ dilation di_alluvium tension t_alluvium por p_alluvium perm pe_alluvium &
+ group lalluvium
+m m group ralluvium
+prop d d_alluvium b b_alluvium s s_alluvium c c_alluvium f f_alluvium &
+ dilation di_alluvium tension t_alluvium por p_alluvium perm pe_alluvium &
+ group ralluvium
+interface 1 aside from 136,25 to 136,11 bside from 136,25 to 136,11
+interface 1 glued kn=k1 ks=k1
+interface 2 aside from 136,11 to 138,11 bside from 136,11 to 138,11
+interface 2 glued kn=k2 ks=k2
+interface 3 aside from 138,11 to 138,25 bside from 138,11 to 138,25
+interface 3 glued kn=k3 ks=k3
+m m group groutcurtain
+prop d d_groutcurtain b b_groutcurtain s s_groutcurtain c c_groutcurtain f &
+ f_groutcurtain dilation di_groutcurtain tension t_groutcurtain por &
+ p_groutcurtain perm pe_groutcurtain group groutcurtain
+interface 4 aside from 138,25 to 136,25 bside from 138,25 to 136,25
+interface 4 glued kn=k4 ks=k4
+;-------------layer0--------------
+m m group ufilter0
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group ufilter0
+m m group core0
+prop d d_core b b_core s s_core c c_core f f_core dilation di_core tension &
+ t_core por p_core perm pe_core group core0
+m m group dfilter0
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group dfilter0
+m m group ddrainage0
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group ddrainage0
+save grid.sav
+
+;Branch 2:initial.sav
+;-------initial-------
+set gravity=9.807
+set flow=off
+water density=1000
+set dyn=off
+set echo off
+call Ininv.fis
+set cd back
+set wth=0.0 k0x=0.5 k0z=0.5
+Ininv
+initial saturation 0.0 region 125,28
+initial saturation 0.0 region 128,27
+initial saturation 0.0 region 148,26
+initial saturation 0.0 region 151,28
+initial saturation 0.0  i 150 j 25
+initial saturation 0.0  i 152 j 28
+initial pp 0.0 region 125,28
+initial pp 0.0 region 128,27
+initial pp 0.0 region 148,26
+initial pp 0.0 region 151,28
+initial pp 0.0  i 150 j 25
+initial pp 0.0  i 152 j 28
+history 999 unbalanced
+solve elastic
+save initial.sav
+
+;Branch 3:9lc_layer1.sav
+;-------layer1-------
+m m group ushell1
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group ushell1
+m m group udrainage1
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group udrainage1
+m m group ufilter1
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group ufilter1
+m m group core1
+prop d d_core b b_core s s_core c c_core f f_core dilation di_core tension &
+ t_core por p_core perm pe_core group core1
+m m group dfilter1
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group dfilter1
+m m group ddrainage1
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group ddrainage1
+m m group toedrainage1
+prop d d_toedrainage b b_toedrainage s s_toedrainage c c_toedrainage f &
+ f_toedrainage dilation di_toedrainage tension t_toedrainage por &
+ p_toedrainage perm pe_toedrainage group toedrainage1
+m m group dshell1
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group dshell1
+ini sat 0.0 i 1 273 j 30 103
+solve
+save 9lc_layer1.sav
+
+;Branch 4:9lc_layer2.sav
+;-------layer2-------
+m m group ushell2
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group ushell2
+m m group udrainage2
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group udrainage2
+m m group ufilter2
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group ufilter2
+m m group core2
+prop d d_core b b_core s s_core c c_core f f_core dilation di_core tension &
+ t_core por p_core perm pe_core group core2
+m m group dfilter2
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group dfilter2
+m m group ddrainage2
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group ddrainage2
+m m group toedrainage2
+prop d d_toedrainage b b_toedrainage s s_toedrainage c c_toedrainage f &
+ f_toedrainage dilation di_toedrainage tension t_toedrainage por &
+ p_toedrainage perm pe_toedrainage group toedrainage2
+m m group dshell2
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group dshell2
+ini sat 0.0 i 1 273 j 30 103
+solve
+save 9lc_layer2.sav
+
+;Branch 5:9lc_layer3.sav
+;-------layer3-------
+m m group ushell3
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group ushell3
+m m group udrainage3
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group udrainage3
+m m group ufilter3
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group ufilter3
+m m group core3
+prop d d_core b b_core s s_core c c_core f f_core dilation di_core tension &
+ t_core por p_core perm pe_core group core3
+m m group dfilter3
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group dfilter3
+m m group ddrainage3
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group ddrainage3
+m m group dshell3
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group dshell3
+ini sat 0.0 i 1 273 j 30 103
+solve
+save 9lc_layer3.sav
+
+;Branch 6:9lc_layer4.sav
+;-------layer4-------
+m m group ushell4
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group ushell4
+m m group udrainage4
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group udrainage4
+m m group ufilter4
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group ufilter4
+m m group core4
+prop d d_core b b_core s s_core c c_core f f_core dilation di_core tension &
+ t_core por p_core perm pe_core group core4
+m m group dfilter4
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group dfilter4
+m m group ddrainage4
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group ddrainage4
+m m group dshell4
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group dshell4
+ini sat 0.0 i 1 273 j 30 103
+solve
+save 9lc_layer4.sav
+
+;Branch 7:9lc_layer5.sav
+;-------layer5-------
+m m group ushell5
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group ushell5
+m m group udrainage5
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group udrainage5
+m m group ufilter5
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group ufilter5
+m m group core5
+prop d d_core b b_core s s_core c c_core f f_core dilation di_core tension &
+ t_core por p_core perm pe_core group core5
+m m group dfilter5
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group dfilter5
+m m group ddrainage5
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group ddrainage5
+m m group dshell5
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group dshell5
+ini sat 0.0 i 1 273 j 30 103
+solve
+save 9lc_layer5.sav
+
+;Branch 8:9lc_layer6.sav
+;-------layer6-------
+m m group ushell6
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group ushell6
+m m group udrainage6
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group udrainage6
+m m group ufilter6
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group ufilter6
+m m group core6
+prop d d_core b b_core s s_core c c_core f f_core dilation di_core tension &
+ t_core por p_core perm pe_core group core6
+m m group dfilter6
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group dfilter6
+m m group ddrainage6
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group ddrainage6
+m m group dshell6
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group dshell6
+ini sat 0.0 i 1 273 j 30 103
+solve
+save 9lc_layer6.sav
+
+;Branch 9:9lc_layer7.sav
+;-------layer7-------
+m m group ushell7
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group ushell7
+m m group udrainage7
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group udrainage7
+m m group ufilter7
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group ufilter7
+m m group core7
+prop d d_core b b_core s s_core c c_core f f_core dilation di_core tension &
+ t_core por p_core perm pe_core group core7
+m m group dfilter7
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group dfilter7
+m m group ddrainage7
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group ddrainage7
+m m group dshell7
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group dshell7
+ini sat 0.0 i 1 273 j 30 103
+solve
+save 9lc_layer7.sav
+
+;Branch 10:9lc_layer8.sav
+;-------layer8-------
+m m group ushell8
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group ushell8
+m m group udrainage8
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group udrainage8
+m m group ufilter8
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group ufilter8
+m m group core8
+prop d d_core b b_core s s_core c c_core f f_core dilation di_core tension &
+ t_core por p_core perm pe_core group core8
+m m group dfilter8
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group dfilter8
+m m group ddrainage8
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group ddrainage8
+m m group dshell8
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group dshell8
+ini sat 0.0 i 1 273 j 30 103
+solve
+save 9lc_layer8.sav
+
+;Branch 11:9lc_layer9.sav
+;-------layer9-------
+m m group ushell9
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group ushell9
+m m group udrainage9
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group udrainage9
+m m group ufilter9
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group ufilter9
+m m group core9
+prop d d_core b b_core s s_core c c_core f f_core dilation di_core tension &
+ t_core por p_core perm pe_core group core9
+m m group dfilter9
+prop d d_filter b b_filter s s_filter c c_filter f f_filter dilation &
+ di_filter tension t_filter por p_filter perm pe_filter group dfilter9
+m m group ddrainage9
+prop d d_drainage b b_drainage s s_drainage c c_drainage f f_drainage &
+ dilation di_drainage tension t_drainage por p_drainage perm pe_drainage &
+ group ddrainage9
+m m group dshell9
+prop d d_shell b b_shell s s_shell c c_shell f f_shell dilation di_shell &
+ tension t_shell por p_shell perm pe_shell group dshell9
+ini sat 0.0 i 1 273 j 30 103
+solve
+save 9lc_layer9.sav
+
+;Branch 12:9lc_impound.sav
+;-------impoundment-------
+apply pp 1136827.44 var 0.0 -1136827.44 from 1,1 to 111,95
+apply pp 0.0 from 207,44 to 273,29
+set mechanical=off
+set flow=on
+water bulk=2e4
+set fastwb=on
+set step 100000000
+solve
+save 9lc_impound.sav
+
+restore '9lc_impound.sav'
+;Branch 0:9lc_watermech.sav
+;-------watermech-------
+apply pressure 646477.44 var 0.0 -646477.44 from 1,29 to 111,95
+apply pressure 0.0 from 207,44 to 273,29
+ini ydis = 0.0 xdis = 0.0 xvel = 0.0 yvel = 0.0
+set mechanical=on
+set flow=off
+water bulk=0.0
+hist reset
+hist unbal
+solve
+save 9lc_watermech.sav
+
+;-------watermech_dis_total-------
+restore '9lc_impound.sav'
+;Branch 0:9lc_watermech_t.sav
+apply pressure 646477.44 var 0.0 -646477.44 from 1,29 to 111,95
+apply pressure 0.0 from 207,44 to 273,29
+;ini ydis = 0.0 xdis = 0.0 xvel = 0.0 yvel = 0.0
+set mechanical=on
+set flow=off
+water bulk=0.0
+hist reset
+hist unbal
+solve
+save 9lc_watermech_t.sav
+
+;Branch 1:9lc_getting_static_outputs.sav
+;--------getting_static_outputs----------
+call getting_static_outputs.fis
+save 9lc_getting_static_outputs.sav
+
+;Branch 2:9lc_dynamic.sav
+; -------dynamic-------
+water bulk 2e7
+set dyn=on
+set large
+hist 100 read dam_motion.his
+hist write 100 table 100
+call filter.fis
+set filter_in 100
+set filter_out 101
+set fc = 12.5
+filter
+call int.fis
+set int_in 101
+set int_out 102
+integrate
+set echo off
+call baseline.fis
+set itab_unc=102 itab_corr=120 drift=-0.0002 ttime=55.045 itab_cmot=104
+baseline
+hist write 104 table 104
+initial xdisp 0 ydisp 0
+initial xvel 0 yvel 0
+history 1 dytime
+set echo off
+call strain_hist.fis
+strain_hist
+set echo off
+call reldispx.fis
+reldispx
+set echo off
+call inipp.fis
+inipp
+set echo off
+call excpp.fis
+excpp
+history 5 dytime
+history 7 vsxy i=139, j=38
+history 8 str_77_20
+history 9 reldispx
+history 10 reldispy
+history 11 excpp
+history 12 pp i=100, j=38
+history 13 esyy i=100, j=38
+history 14 xaccel i=139, j=1
+history 15 xaccel i=139, j=103
+history 16 xaccel i=264, j=29
+history 17 xaccel i=9, j=29
+history 18 xvel i=139, j=1
+history 19 xvel i=139, j=103
+history 20 xvel i=264, j=29
+history 21 xvel i=9, j=29
+history 22 xvel i=139, j=38
+history 23 xdisp i=139, j=1
+history 24 xdisp i=139, j=103
+history nstep 100
+set step=10000000
+set multistep=on
+ini dy_damp hyst default -3.156 1.904
+ini dy_damp rayleigh 0.002 1.0 stiffness
+apply ffield
+apply sxy Sxy_bedrock hist table 104 from 1,1 to 273,1
+apply xquiet yquiet from 1,1 to 273,1
+solve dytime 55.045
+save 9lc_dynamic.sav
+
+;Branch 3:9lc_fos.sav
+;-------fos----------
+;solve fos no_restore
+save 9lc_fos.sav
+
+

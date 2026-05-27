@@ -1,0 +1,216 @@
+;Name:material_properties
+;Input:d_core/int/1500/
+;Input:d_shell/int/1600/
+;Input:d_filter/int/1500/
+;Input:d_drainage/int/1800/
+;Input:d_toedrainage/int/1800/
+;Input:d_groutcurtain/int/1800/
+;Input:d_alluvium/int/1800/
+;Input:d_bedrock/int/1900/
+;Input:e_core/int/15e6/
+;Input:e_shell/int/125e6/
+;Input:e_filter/int/80e6/
+;Input:e_drainage/int/85e6/
+;Input:e_toedrainage/int/85e6/
+;Input:e_groutcurtain/int/850e6/
+;Input:e_alluvium/int/450e6/
+;Input:e_bedrock/int/4500e6/
+;Input:nu_core/int/0.30/
+;Input:nu_shell/int/0.25/
+;Input:nu_filter/int/0.25/
+;Input:nu_drainage/int/0.25/
+;Input:nu_toedrainage/int/0.25/
+;Input:nu_groutcurtain/int/0.20/
+;Input:nu_alluvium/int/0.25/
+;Input:nu_bedrock/int/0.33/
+;Input:c_core/int/25e3/
+;Input:c_shell/int/200/
+;Input:c_filter/int/200/
+;Input:c_drainage/int/200/
+;Input:c_toedrainage/int/5e3/
+;Input:c_groutcurtain/int/400e3/
+;Input:c_alluvium/int/35e3/
+;Input:c_bedrock/int/100e3/
+;Input:f_core/int/22/
+;Input:f_shell/int/40/
+;Input:f_filter/int/30/
+;Input:f_drainage/int/35/
+;Input:f_toedrainage/int/35/
+;Input:f_groutcurtain/int/45/
+;Input:f_alluvium/int/33/
+;Input:f_bedrock/int/45/
+;Input:p_core/int/0.50/
+;Input:p_shell/int/0.30/
+;Input:p_filter/int/0.30/
+;Input:p_drainage/int/0.30/
+;Input:p_toedrainage/int/0.30/
+;Input:p_groutcurtain/int/0.50/
+;Input:p_alluvium/int/0.45/
+;Input:p_bedrock/int/0.50/
+;Input:h_core/int/1.15e-8/
+;Input:h_shell/int/7.00e-4/
+;Input:h_filter/int/2.00e-4/
+;Input:h_drainage/int/1.50e-3/
+;Input:h_toedrainage/int/1.00e-2/
+;Input:h_groutcurtain/int/1.00e-9/
+;Input:h_alluvium/int/1.50e-7/
+;Note:d=dry density(kg/m3), e=elasticity modulus(pa), nu=poisson's ratio(-), c=cohesion(pa), f=friction angle(degree), p=porosity(-), h=hydraulic conductivity(m/s)
+
+def material_properties
+
+;;input properties
+;dry density
+d_core = 1500
+d_shell = 1600
+d_filter = 1500
+d_drainage = 1800
+d_toedrainage = 1800
+d_groutcurtain = 1800
+d_alluvium = 1800
+d_bedrock = 1900
+;elasticity modulus
+e_core = 15e6
+e_shell = 125e6
+e_filter = 80e6
+e_drainage = 85e6
+e_toedrainage = 85e6
+e_groutcurtain = 850e6
+e_alluvium = 450e6
+e_bedrock = 4500e6
+;poisson's ratio
+nu_core = 0.30
+nu_shell = 0.25
+nu_filter = 0.25
+nu_drainage = 0.25
+nu_toedrainage = 0.25
+nu_groutcurtain = 0.20
+nu_alluvium = 0.25
+nu_bedrock = 0.33
+;cohesion
+c_core = 25e3
+c_shell = 200
+c_filter = 200
+c_drainage = 200
+c_toedrainage = 5000
+c_groutcurtain = 400e3
+c_alluvium = 35e3
+c_bedrock = 100e3
+;friction angle
+f_core = 22
+f_shell = 40
+f_filter = 30
+f_drainage = 35
+f_toedrainage = 35
+f_groutcurtain = 45
+f_alluvium = 33
+f_bedrock = 45
+;dilation angle
+di_core = 0
+di_shell = 13
+di_filter = 8
+di_drainage = 8
+di_toedrainage = 8
+di_groutcurtain = 0
+di_alluvium = 12
+di_bedrock = 12
+;tension angle
+t_core = 0
+t_shell = 0
+t_filter = 0
+t_drainage = 0
+t_toedrainage = 0
+t_groutcurtain = 0
+t_alluvium = 0
+t_bedrock = 0
+;porosity
+p_core = 0.50
+p_shell = 0.30
+p_filter = 0.30
+p_drainage = 0.30
+p_toedrainage = 0.30
+p_groutcurtain = 0.50
+p_alluvium = 0.45
+p_bedrock = 0.50
+;hydraulic conductivity
+h_core = 1.15e-8
+h_shell = 7.00e-4
+h_filter = 2.00e-4
+h_drainage = 1.50e-3
+h_toedrainage = 1.00e-2
+h_groutcurtain = 1.00e-9
+h_alluvium = 1.50e-7
+h_bedrock = 2.00e-8
+;damping ratio
+da_core = 0.05
+da_shell = 0.05
+da_filter = 0.05
+da_drainage = 0.05
+da_toedrainage = 0.05
+da_groutcurtain = 0.05
+da_alluvium = 0.05
+da_bedrock = 0.05
+
+;;calculations
+;bulk modulus
+b_core = e_core/(3*(1-2*nu_core))
+b_shell = e_shell/(3*(1-2*nu_shell))
+b_filter = e_filter/(3*(1-2*nu_filter))
+b_drainage = e_drainage/(3*(1-2*nu_drainage))
+b_toedrainage = e_toedrainage/(3*(1-2*nu_toedrainage))
+b_groutcurtain = e_groutcurtain/(3*(1-2*nu_groutcurtain))
+b_alluvium = e_alluvium/(3*(1-2*nu_alluvium))
+b_bedrock = e_bedrock/(3*(1-2*nu_bedrock))
+;shear modulus
+s_core = e_core/(2*(1+nu_core))
+s_shell = e_shell/(2*(1+nu_shell))
+s_filter = e_filter/(2*(1+nu_filter))
+s_drainage = e_drainage/(2*(1+nu_drainage))
+s_toedrainage = e_toedrainage/(2*(1+nu_toedrainage))
+s_groutcurtain = e_groutcurtain/(2*(1+nu_groutcurtain))
+s_alluvium = e_alluvium/(2*(1+nu_alluvium))
+s_bedrock = e_bedrock/(2*(1+nu_bedrock))
+;permeability
+pe_core = h_core*1e-4
+pe_shell = h_shell*1e-4
+pe_filter = h_filter*1e-4
+pe_drainage = h_drainage*1e-4
+pe_toedrainage = h_toedrainage*1e-4
+pe_groutcurtain = h_groutcurtain*1e-4
+pe_alluvium = h_alluvium*1e-4
+pe_bedrock = h_bedrock*1e-4
+;interface ks
+k1 = max(((10/0.8)*(b_alluvium+(4/3.0)*s_alluvium)) , ((10/0.8)*(b_groutcurtain+(4/3.0)*s_groutcurtain)))
+k2 = max(((10/0.8)*(b_bedrock+(4/3.0)*s_bedrock)) , ((10/0.8)*(b_groutcurtain+(4/3.0)*s_groutcurtain)))
+k3 = max(((10/0.8)*(b_alluvium+(4/3.0)*s_alluvium)) , ((10/0.8)*(b_groutcurtain+(4/3.0)*s_groutcurtain)))
+k4 = max(((10/0.8)*(b_core+(4/3.0)*s_core)) , ((10/0.8)*(b_groutcurtain+(4/3.0)*s_groutcurtain)))
+;saturated density
+sd_core = d_core+p_core*1000
+sd_shell = d_shell+p_shell*1000
+sd_filter = d_filter+p_filter*1000
+sd_drainage = d_drainage+p_drainage*1000
+sd_toedrainage = d_toedrainage+p_toedrainage*1000
+sd_groutcurtain = d_groutcurtain+p_groutcurtain*1000
+sd_alluvium = d_alluvium+p_alluvium*1000
+sd_bedrock = d_bedrock+p_bedrock*1000
+;Cs
+Cs_core=sqrt(s_core/sd_core)
+Cs_shell=sqrt(s_shell/sd_shell)
+Cs_filter=sqrt(s_filter/sd_filter)
+Cs_drainage=sqrt(s_drainage/sd_drainage)
+Cs_toedrainage=sqrt(s_toedrainage/sd_toedrainage)
+Cs_groutcurtain=sqrt(s_groutcurtain/sd_groutcurtain)
+Cs_alluvium=sqrt(s_alluvium/sd_alluvium)
+Cs_bedrock=sqrt(s_bedrock/sd_bedrock)
+;Sxy
+Sxy_core=-2*sd_core*Cs_core
+Sxy_shell=-2*sd_shell*Cs_shell
+Sxy_filter=-2*sd_filter*Cs_filter
+Sxy_drainage=-2*sd_drainage*Cs_drainage
+Sxy_toedrainage=-2*sd_toedrainage*Cs_toedrainage
+Sxy_groutcurtain=-2*sd_groutcurtain*Cs_groutcurtain
+Sxy_alluvium=-2*sd_alluvium*Cs_alluvium
+Sxy_bedrock=-2*sd_bedrock*Cs_bedrock
+end
+
+material_properties
+
