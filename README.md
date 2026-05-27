@@ -1,4 +1,4 @@
-# dam_model_flac2d_runner
+# Dam_Model_FLAC2D_Runner
 
 Generic MATLAB–FLAC2D automation framework for dam modeling, uncertainty analysis, and factor-of-safety (FoS) simulations.
 
