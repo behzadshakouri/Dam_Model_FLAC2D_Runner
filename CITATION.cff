@@ -1,15 +1,86 @@
 cff-version: 1.2.0
-title: Dam_Model_FLAC_Runner
-message: If you use this software, please cite it using the metadata from this file.
+title: "Dam_Model_FLAC_Runner"
+message: "If you use this software, please cite it using the metadata from this file."
 type: software
+
 authors:
-  - family-names: Shakouri
-    given-names: Behzad
-repository-code: https://github.com/behzad-shakouri92/dam_model_flac2d_runner
-license: MIT
-version: 0.1.0
+  - family-names: "Shakouri"
+    given-names: "Behzad"
+    affiliation: "Urmia University"
+
+repository-code: "https://github.com/behzad-shakouri92/Dam_Model_FLAC2D_Runner"
+
+license: "MIT"
+
+version: "0.1.0"
+
 date-released: 2026-05-27
 
-Papers published with the script:
-Shakouri, B., Mohammadi, M., Safari, M. J. S., & Hariri-Ardebili, M. A. (2023). A collaborative numerical simulation-soft computing approach for earth dams first impoundment modeling. Computers and Geotechnics, 164, 105814.
-Shakouri, B., Mohammadi, M., Safari, M. J. S., & Hariri-Ardebili, M. A. (2022). First Impoundment Response Analysis of an Earth Dam using Coupled Numerical-Soft Computing technique. In IWA World Water Congress & Exhibition.
+abstract: >
+  Generic MATLAB–FLAC2D automation framework for dam modeling,
+  uncertainty analysis, and factor-of-safety simulations.
+  This framework was developed and generalized from research
+  conducted during the author's PhD studies at Urmia University.
+
+keywords:
+  - FLAC2D
+  - MATLAB
+  - Earth Dam
+  - Geotechnical Engineering
+  - Uncertainty Analysis
+  - Factor of Safety
+  - Numerical Simulation
+  - Dam Engineering
+
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Shakouri"
+      given-names: "B."
+    - family-names: "Mohammadi"
+      given-names: "M."
+    - family-names: "Safari"
+      given-names: "M. J. S."
+    - family-names: "Hariri-Ardebili"
+      given-names: "M. A."
+  title: "A collaborative numerical simulation-soft computing approach for earth dams first impoundment modeling"
+  journal: "Computers and Geotechnics"
+  year: 2023
+  volume: 164
+  pages: 105814
+
+references:
+  - type: article
+    authors:
+      - family-names: "Shakouri"
+        given-names: "B."
+      - family-names: "Mohammadi"
+        given-names: "M."
+      - family-names: "Safari"
+        given-names: "M. J. S."
+      - family-names: "Hariri-Ardebili"
+        given-names: "M. A."
+    title: "A collaborative numerical simulation-soft computing approach for earth dams first impoundment modeling"
+    journal: "Computers and Geotechnics"
+    year: 2023
+    volume: 164
+    pages: 105814
+
+  - type: conference-paper
+    authors:
+      - family-names: "Shakouri"
+        given-names: "B."
+      - family-names: "Mohammadi"
+        given-names: "M."
+      - family-names: "Safari"
+        given-names: "M. J. S."
+      - family-names: "Hariri-Ardebili"
+        given-names: "M. A."
+    title: "First Impoundment Response Analysis of an Earth Dam using Coupled Numerical-Soft Computing technique"
+    conference:
+      name: "IWA World Water Congress & Exhibition"
+    year: 2022
+
+notes: >
+  The associated research and original workflow development were
+  conducted during the author's PhD studies at Urmia University.
