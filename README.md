@@ -168,7 +168,7 @@ Potential future developments:
 
 ## Citation
 
-If you use this framework in academic work, please cite the repository using the included `CITATION.cff`.
+If you use this framework in academic work, please cite the repository and associated publications using the included `CITATION.cff`.
 
 ---
 
