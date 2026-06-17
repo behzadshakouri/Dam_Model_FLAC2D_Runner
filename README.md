@@ -170,6 +170,10 @@ Potential future developments:
 
 If you use this framework in academic work, please cite the repository and associated publications using the included `CITATION.cff`.
 
+Shakouri, B., Mohammadi, M., Safari, M. J. S., & Hariri-Ardebili, M. A. (2023). A collaborative numerical simulation-soft computing approach for earth dams first impoundment modeling. Computers and Geotechnics, 164, 105814. https://doi.org/10.1016/j.compgeo.2023.105814
+
+Shakouri, B., Mohammadi, M., Safari, M. J. S., & Hariri-Ardebili, M. A. (2022). First Impoundment Response Analysis of an Earth Dam using Coupled Numerical-Soft Computing technique. In IWA World Water Congress & Exhibition.
+
 ---
 
 ## License
