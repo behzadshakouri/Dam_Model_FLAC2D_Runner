@@ -174,6 +174,8 @@ Shakouri, B., Mohammadi, M., Safari, M. J. S., & Hariri-Ardebili, M. A. (2023). 
 
 Shakouri, B., Mohammadi, M., Safari, M. J. S., & Hariri-Ardebili, M. A. (2022). First Impoundment Response Analysis of an Earth Dam using Coupled Numerical-Soft Computing technique. In IWA World Water Congress & Exhibition.
 
+Shakouri, B., Mohammadi, M., & Safari, M. J. S. (2024). Sensitivity analysis for uncertainty quantification in earth dams modeling (Case study: Maku dam). Water and Irrigation Management, 14(1), 75–90. https://doi.org/10.22059/jwim.2023.360452.1084
+
 ---
 
 ## License
