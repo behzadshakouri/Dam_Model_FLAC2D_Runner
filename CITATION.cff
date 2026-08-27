@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "Dam_Model_FLAC_Runner"
+title: "Dam_Model_FLAC2D_Runner"
 message: "If you use this software, please cite it using the metadata from this file."
 type: software
 
@@ -8,7 +8,7 @@ authors:
     given-names: "Behzad"
     affiliation: "Urmia University"
 
-repository-code: "https://github.com/behzad-shakouri92/Dam_Model_FLAC2D_Runner"
+repository-code: "https://github.com/behzadshakouri/Dam_Model_FLAC2D_Runner"
 
 license: "MIT"
 
@@ -48,6 +48,7 @@ preferred-citation:
   year: 2023
   volume: 164
   pages: 105814
+  doi: "10.1016/j.compgeo.2023.105814"
 
 references:
   - type: article
@@ -65,6 +66,7 @@ references:
     year: 2023
     volume: 164
     pages: 105814
+    doi: "10.1016/j.compgeo.2023.105814"
 
   - type: conference-paper
     authors:
@@ -80,6 +82,23 @@ references:
     conference:
       name: "IWA World Water Congress & Exhibition"
     year: 2022
+
+  - type: article
+    authors:
+      - family-names: "Shakouri"
+        given-names: "B."
+      - family-names: "Mohammadi"
+        given-names: "M."
+      - family-names: "Safari"
+        given-names: "M. J. S."
+    title: "Sensitivity analysis for uncertainty quantification in earth dams modeling (Case study: Maku dam)"
+    journal: "Water and Irrigation Management"
+    year: 2024
+    volume: 14
+    issue: 1
+    start: 75
+    end: 90
+    doi: "10.22059/jwim.2023.360452.1084"
 
 notes: >
   The associated research and original workflow development were
