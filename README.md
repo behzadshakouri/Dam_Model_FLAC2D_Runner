@@ -34,8 +34,9 @@ dam_model_flac2d_runner/
 ├── flac_templates/
 │   ├── Dam.dat
 │   ├── Dam_FoS.dat
-│   ├── Dam.prj
-│   ├── Dam.his
+│   ├── history/
+│   │   ├── dam_motion.his
+│   │   └── dam_motion_raw.his
 │   └── fis/
 │       ├── material_properties.fis
 │       ├── RVs_calc.fis
@@ -175,6 +176,12 @@ Shakouri, B., Mohammadi, M., Safari, M. J. S., & Hariri-Ardebili, M. A. (2023). 
 Shakouri, B., Mohammadi, M., Safari, M. J. S., & Hariri-Ardebili, M. A. (2022). First Impoundment Response Analysis of an Earth Dam using Coupled Numerical-Soft Computing technique. In IWA World Water Congress & Exhibition.
 
 Shakouri, B., Mohammadi, M., & Safari, M. J. S. (2024). Sensitivity analysis for uncertainty quantification in earth dams modeling (Case study: Maku dam). Water and Irrigation Management, 14(1), 75–90. https://doi.org/10.22059/jwim.2023.360452.1084
+
+### Related reproducibility software
+
+For the paper-specific first-impoundment and seismic-response surrogate-modeling workflows, reference metrics, tests, and reproducibility records, see and cite:
+
+Shakouri, B. (2026). *EarthDam-FLAC2D-SoftComputing* (Version 1.0.0) [Computer software]. GitHub. https://github.com/behzadshakouri/EarthDam-FLAC2D-SoftComputing
 
 ---
 

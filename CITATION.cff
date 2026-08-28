@@ -9,6 +9,7 @@ authors:
     affiliation: "Urmia University"
 
 repository-code: "https://github.com/behzadshakouri/Dam_Model_FLAC2D_Runner"
+url: "https://github.com/behzadshakouri/Dam_Model_FLAC2D_Runner"
 
 license: "MIT"
 
@@ -36,13 +37,13 @@ preferred-citation:
   type: article
   authors:
     - family-names: "Shakouri"
-      given-names: "B."
+      given-names: "Behzad"
     - family-names: "Mohammadi"
-      given-names: "M."
+      given-names: "Mirali"
     - family-names: "Safari"
-      given-names: "M. J. S."
+      given-names: "Mir Jafar Sadegh"
     - family-names: "Hariri-Ardebili"
-      given-names: "M. A."
+      given-names: "Mohammad Amin"
   title: "A collaborative numerical simulation-soft computing approach for earth dams first impoundment modeling"
   journal: "Computers and Geotechnics"
   year: 2023
@@ -54,13 +55,13 @@ references:
   - type: article
     authors:
       - family-names: "Shakouri"
-        given-names: "B."
+        given-names: "Behzad"
       - family-names: "Mohammadi"
-        given-names: "M."
+        given-names: "Mirali"
       - family-names: "Safari"
-        given-names: "M. J. S."
+        given-names: "Mir Jafar Sadegh"
       - family-names: "Hariri-Ardebili"
-        given-names: "M. A."
+        given-names: "Mohammad Amin"
     title: "A collaborative numerical simulation-soft computing approach for earth dams first impoundment modeling"
     journal: "Computers and Geotechnics"
     year: 2023
@@ -71,13 +72,13 @@ references:
   - type: conference-paper
     authors:
       - family-names: "Shakouri"
-        given-names: "B."
+        given-names: "Behzad"
       - family-names: "Mohammadi"
-        given-names: "M."
+        given-names: "Mirali"
       - family-names: "Safari"
-        given-names: "M. J. S."
+        given-names: "Mir Jafar Sadegh"
       - family-names: "Hariri-Ardebili"
-        given-names: "M. A."
+        given-names: "Mohammad Amin"
     title: "First Impoundment Response Analysis of an Earth Dam using Coupled Numerical-Soft Computing technique"
     conference:
       name: "IWA World Water Congress & Exhibition"
@@ -86,11 +87,11 @@ references:
   - type: article
     authors:
       - family-names: "Shakouri"
-        given-names: "B."
+        given-names: "Behzad"
       - family-names: "Mohammadi"
-        given-names: "M."
+        given-names: "Mirali"
       - family-names: "Safari"
-        given-names: "M. J. S."
+        given-names: "Mir Jafar Sadegh"
     title: "Sensitivity analysis for uncertainty quantification in earth dams modeling (Case study: Maku dam)"
     journal: "Water and Irrigation Management"
     year: 2024
@@ -99,6 +100,16 @@ references:
     start: 75
     end: 90
     doi: "10.22059/jwim.2023.360452.1084"
+
+  - type: software
+    authors:
+      - family-names: "Shakouri"
+        given-names: "Behzad"
+    title: "EarthDam-FLAC2D-SoftComputing"
+    version: "1.0.0"
+    date-released: 2026-08-12
+    repository-code: "https://github.com/behzadshakouri/EarthDam-FLAC2D-SoftComputing"
+    url: "https://github.com/behzadshakouri/EarthDam-FLAC2D-SoftComputing"
 
 notes: >
   The associated research and original workflow development were
