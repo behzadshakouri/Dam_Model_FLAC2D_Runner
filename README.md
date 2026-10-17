@@ -1,5 +1,7 @@
 # Dam_Model_FLAC2D_Runner
 
+## About
+
 Generic MATLAB–FLAC2D automation framework for dam modeling, uncertainty analysis, and factor-of-safety (FoS) simulations.
 
 This repository provides a reusable workflow for running large batches of FLAC2D simulations using MATLAB automation scripts and FISH utilities. The framework was generalized from research-scale dam simulations and refactored to remove project-specific dependencies and hardcoded paths.
